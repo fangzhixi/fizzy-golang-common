@@ -16,9 +16,9 @@ var FizzyOcrErrorMsg = map[int32]string{
 
 func FizzyOcrErrCodeInit() {
 	for key, value := range FizzyOcrErrorMsg {
-		if _, ok := ErrorMsg[key]; ok {
+		if _, ok := errorMsg[key]; ok {
 			panic(fmt.Sprintf("fizzy-ocr %d 错误码重复定义", key))
 		}
-		ErrorMsg[key] = value
+		errorMsg[key] = value
 	}
 }

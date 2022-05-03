@@ -22,5 +22,5 @@ func NewError(logId string, code int32, err error) ErrorBase {
 }
 
 func (e ErrorBase) Error() string {
-	return fmt.Sprintf("%s - %s", e.LogId, errcode.ErrorMsg[e.Code])
+	return fmt.Sprintf("%s - %s", e.LogId, errcode.GetErrMsg(e.Code))
 }

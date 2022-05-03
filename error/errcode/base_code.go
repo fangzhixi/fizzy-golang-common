@@ -13,7 +13,7 @@ var (
 	EXTERNAL_DEPENDENCY_ERROR  int32 = 1016 //服务异常:依赖服务返回拒绝
 )
 
-var ErrorMsg = map[int32]string{
+var errorMsg = map[int32]string{
 	OK:                         "请求成功",
 	UNDEFINE:                   "错误未定义",
 	BAD_REQUEST:                "参数错误:当前请求无法被服务器理解",
@@ -24,4 +24,8 @@ var ErrorMsg = map[int32]string{
 	BUSINESS_LOGIC_ERROR:       "服务异常:因业务逻辑错误导致请求不能被正常处理",
 	EXTERNAL_DEPENDENCY_REJECT: "服务异常:依赖其他项目错误",
 	EXTERNAL_DEPENDENCY_ERROR:  "服务异常:依赖服务返回拒绝",
+}
+
+func GetErrMsg(key int32) string {
+	return errorMsg[key]
 }
