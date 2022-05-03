@@ -13,7 +13,7 @@ type BusinessError struct {
 	OriginError error
 }
 
-func NewError(logId string, code int32, err error) *BusinessError {
+func NewBusError(logId string, code int32, err error) *BusinessError {
 	return &BusinessError{
 		LogId:       logId,
 		Code:        code,
