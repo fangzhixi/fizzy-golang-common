@@ -25,5 +25,5 @@ func (e *BusinessError) Error() string {
 	if e == nil {
 		return ""
 	}
-	return fmt.Sprintf("%s - %s", e.LogId, errcode.GetErrMsg(e.Code))
+	return fmt.Sprintf("%d:%s - %s", e.Code, errcode.GetErrMsg(e.Code), e.LogId)
 }
