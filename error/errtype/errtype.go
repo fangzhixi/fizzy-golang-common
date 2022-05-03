@@ -7,20 +7,23 @@ import (
 )
 
 //错误基类
-type ErrorBase struct {
+type BusinessError struct {
 	LogId       string
 	Code        int32
 	OriginError error
 }
 
-func NewError(logId string, code int32, err error) ErrorBase {
-	return ErrorBase{
+func NewError(logId string, code int32, err error) *BusinessError {
+	return &BusinessError{
 		LogId:       logId,
 		Code:        code,
 		OriginError: err,
 	}
 }
 
-func (e ErrorBase) Error() string {
+func (e *BusinessError) Error() string {
+	if e == nil {
+		return ""
+	}
 	return fmt.Sprintf("%s - %s", e.LogId, errcode.GetErrMsg(e.Code))
 }
