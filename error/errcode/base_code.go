@@ -1,5 +1,12 @@
 package errcode
 
+/*
+ * @Author       : zhixi.fang
+ * @Date         : 2022-06-11 10:15:43
+ * @LastEditors  : zhixi.fang
+ * @LastEditTime : 2022-06-11 15:04:31
+ */
+
 var (
 	/******************** 通用错误码 (200~1099) ********************/
 

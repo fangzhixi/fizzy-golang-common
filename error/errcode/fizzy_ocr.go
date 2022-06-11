@@ -1,5 +1,12 @@
 package errcode
 
+/*
+ * @Author       : zhixi.fang
+ * @Date         : 2022-05-03 15:48:04
+ * @LastEditors  : zhixi.fang
+ * @LastEditTime : 2022-06-11 15:04:50
+ */
+
 const (
 	/******************** 参数检查错误码 (1100~1999) ********************/
 

@@ -1,5 +1,12 @@
 package image
 
+/*
+ * @Author       : zhixi.fang
+ * @Date         : 2022-06-11 10:08:42
+ * @LastEditors  : zhixi.fang
+ * @LastEditTime : 2022-06-11 15:06:29
+ */
+``
 import (
 	"bytes"
 	"encoding/base64"
@@ -47,7 +54,6 @@ type Rect struct {
 	Width  int32 `protobuf:"varint,3,opt,name=width,proto3" json:"width,omitempty"`   //宽度
 	Height int32 `protobuf:"varint,4,opt,name=height,proto3" json:"height,omitempty"` //高度
 }
-
 
 // 识别参数
 type Image struct {
@@ -148,8 +154,8 @@ func (i *Image) clipImageCore(inImg []byte, x0, y0, width, height, angle float64
 		imgReader = bytes.NewReader(inImg)
 		rotateX   = x0 + width/2
 		rotateY   = y0 + height/2
-		x1 = x0 + width
-		y1 = y0 + height
+		x1        = x0 + width
+		y1        = y0 + height
 	)
 
 	err = errors.New("图片读取失败")
