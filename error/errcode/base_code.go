@@ -1,11 +1,5 @@
 package errcode
 
-import (
-	"fmt"
-
-	"github.com/fangzhixi/go-common/define"
-)
-
 var (
 	/******************** 通用错误码 (200~1099) ********************/
 
