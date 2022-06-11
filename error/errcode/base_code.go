@@ -29,5 +29,9 @@ var errorMsg = map[int32]string{
 }
 
 func GetErrMsg(key int32) string {
-	return errorMsg[key]
+	errMsg, ok := errorMsg[key]
+	if ok {
+		return errMsg
+	}
+	return errorMsg[UNDEFINE]
 }
