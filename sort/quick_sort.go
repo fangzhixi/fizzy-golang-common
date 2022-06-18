@@ -4,11 +4,17 @@ package sort
  * @Author       : zhixi.fang
  * @Date         : 2022-06-13 22:23:14
  * @LastEditors  : zhixi.fang
- * @LastEditTime : 2022-06-13 23:04:58
+ * @LastEditTime : 2022-06-18 10:47:43
  */
 
 // QuickSort 快速排序
 func QuickSort[T int8 | int16 | int32 | int | int64 | float32 | float64](numbers ...T) []T {
+	quickSort(numbers, 0, len(numbers)-1)
+	return numbers
+}
+
+// QuickSortByArray 快速排序
+func QuickSortByArray[T int8 | int16 | int32 | int | int64 | float32 | float64](numbers []T) []T {
 	quickSort(numbers, 0, len(numbers)-1)
 	return numbers
 }
