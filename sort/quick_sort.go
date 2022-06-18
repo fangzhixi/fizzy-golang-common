@@ -4,22 +4,22 @@ package sort
  * @Author       : zhixi.fang
  * @Date         : 2022-06-13 22:23:14
  * @LastEditors  : zhixi.fang
- * @LastEditTime : 2022-06-18 10:47:43
+ * @LastEditTime : 2022-06-18 11:07:57
  */
 
 // QuickSort 快速排序
-func QuickSort[T int8 | int16 | int32 | int | int64 | float32 | float64](numbers ...T) []T {
+func QuickSort[T int8 | int16 | int | int32 | int64 | float32 | float64](numbers ...T) []T {
 	quickSort(numbers, 0, len(numbers)-1)
 	return numbers
 }
 
 // QuickSortByArray 快速排序
-func QuickSortByArray[T int8 | int16 | int32 | int | int64 | float32 | float64](numbers []T) []T {
+func QuickSortByArray[T int8 | int16 | int | int32 | int64 | float32 | float64](numbers []T) []T {
 	quickSort(numbers, 0, len(numbers)-1)
 	return numbers
 }
 
-func quickSort[T int8 | int16 | int32 | int | int64 | float32 | float64](nums []T, left, right int) {
+func quickSort[T int8 | int16 | int | int32 | int64 | float32 | float64](nums []T, left, right int) {
 	for left < right {
 		mid := partition(nums, left, right)
 		quickSort(nums, left, mid-1)
@@ -27,12 +27,12 @@ func quickSort[T int8 | int16 | int32 | int | int64 | float32 | float64](nums []
 	}
 }
 
-func partition[T int8 | int16 | int32 | int | int64 | float32 | float64](nums []T, left, right int) int {
+// partition 分类排序
+func partition[T int8 | int16 | int | int32 | int64 | float32 | float64](nums []T, left, right int) int {
 	// choose a pivot
 
 	// 改变的地方
-	pivot := threeSumMedian(nums[left], nums[(left+right)/2], nums[right])
-	//pivot := nums[left]
+	pivot := threeNumMedian(nums[left], nums[(left+right)/2], nums[right])
 	nums[left], pivot = pivot, nums[left]
 	// 改变结束
 
@@ -53,21 +53,19 @@ func partition[T int8 | int16 | int32 | int | int64 | float32 | float64](nums []
 
 }
 
-// input 10 20 30 ---> return 20 ; input 10 10 11 --> return 10
-func threeSumMedian[T int8 | int16 | int32 | int | int64 | float32 | float64](a, b, c T) T {
+// 三个数值中间值 （Min <= Med =< Max）
+func threeNumMedian[T int8 | int16 | int | int32 | int64 | float32 | float64](a, b, c T) T {
 
 	if a < b {
 		a, b = b, a
 	}
-	// a  > b
 
 	if c > a {
 		return a
-	} else {
-		if c > b {
-			return c
-		} else {
-			return b
-		}
 	}
+
+	if c > b {
+		return c
+	}
+	return b
 }
